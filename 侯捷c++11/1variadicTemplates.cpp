@@ -2,6 +2,7 @@
 #include<vector>
 #include<bitset>
 using namespace std;
+
 void printX()
 {
 
@@ -16,13 +17,14 @@ void printX(const T& firstArg, const Types&... args)
 template<typename...Types>
 void printX(const Types&... args)
 {
-    cout << "调用了泛化模板" << endl;
-    
-     printX(args...);
+     cout << "调用了泛化模板" << endl;
+    size_t Seed = 0;
+    printX(Seed,args...);
+  
 }
 
 int main()
 {
-    printX(123,"Hello","12345",23.23,bitset<16>(1234));
+    printX(23.23,"Hello","12345",23.23,bitset<16>(1234));
     return 0;
 }
